@@ -126,10 +126,10 @@ docker login
 kpneha4@gmail.com
 kpneha@1234
 
-docker tag flask-docker-app:latest your-dockerhub-username/flask-docker-app:latest
+docker tag flask-docker-app:latest kpneha4/flask-docker-app:latest
 
-docker push your-dockerhub-username/flask-docker-app:latest
+docker push kpneha4/flask-docker-app:latest
 ---
-docker pull your-dockerhub-username/flask-docker-app:latest
-docker run -d --name flaskapp -p 5050:5000 your-dockerhub-username/flask-docker-app:latest
+docker pull kpneha4/flask-docker-app:latest
+docker run -d --name flaskapp -p 5050:5000 kpneha4/flask-docker-app:latest
 
