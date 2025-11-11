@@ -1,4 +1,6 @@
-----Start Jenkins----
+download jenkins
+
+paste in powershell
 
 # Create lab folder and enter it
 New-Item -ItemType Directory -Force -Path "$HOME\jenkins-static-site" | Out-Null
@@ -30,21 +32,37 @@ docker compose up -d
 # Get initial admin password
 Write-Host "Initial Admin Password:"
 docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
+========================================================================
+admin
+password
 
 
-Open this - http://localhost:8080
 
-Jenkins → Manage Jenkins → Plugins → Available → search HTML Publisher → Install
+Click “Manage Jenkins” (on left menu)
+
+Click “Plugins”
+
+Go to the Available plugins tab
+
+In the search bar, type → HTML Publisher
+
+Check the box
 
 
-----Create Pipeline----
-
-Jenkins → New Item → Pipeline → name: karunya-site-pipeline → OK
 
 
-2. Pipeline → Definition = “Pipeline script” → paste this entire script:
+On Jenkins home page → click “New Item”
 
-3. Pipeline Script
+Enter the name: karunya-site-pipeline
+
+Select “Pipeline”
+
+Click OK
+
+
+
+
+pipeline script
 
 pipeline {
   agent any
@@ -52,11 +70,9 @@ pipeline {
     stage('Generate site') {
       steps {
         script {
-          // Clean & create site structure
           sh 'rm -rf site || true'
           sh 'mkdir -p site/assets'
 
-          // Write index.html
           writeFile file: 'site/index.html', text: """
 <!doctype html>
 <html lang="en">
@@ -86,7 +102,6 @@ pipeline {
 </html>
 """
 
-          // Write CSS
           writeFile file: 'site/assets/style.css', text: """
 body { font-family: Arial, sans-serif; margin:0; }
 .container { max-width:800px; margin:0 auto; padding:20px; }
@@ -121,6 +136,5 @@ body { font-family: Arial, sans-serif; margin:0; }
 }
 
 
-4. Build Now
 
-click - Karunya University - Simple Site
+build now
