@@ -1,10 +1,6 @@
-:: =========================
-:: GIT ESSENTIALS – ONE SCRIPT
-:: Works in VS Code Terminal (PowerShell) and Windows CMD
-:: For macOS/Linux: the commands are the same; replace $vars with text if needed.
-:: =========================
 
-:: 0) VERIFY GIT + BASIC CONFIG (run once per machine)
+
+ 0) VERIFY GIT + BASIC CONFIG (run once per machine)
 git --version
 git config --global user.name "kpneha4"
 git config --global user.email "kpneha4@gmail.com"
