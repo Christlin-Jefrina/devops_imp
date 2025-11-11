@@ -36,8 +36,8 @@ COPY index.html /usr/share/nginx/html/index.html
 6. 
 
 git init
-git config user.name "kpneha4"
-git config user.email "kpneha4@gmail.com"
+git config user.name "christlinjefrina"
+git config user.email "christlinjefrina@karunya.edu.in"
 git add .
 git commit -m "Initial commit with simple HTML page"
 
@@ -49,7 +49,7 @@ GitHub repo- git-essentials-lab
 8.
 
 git branch -M main
-git remote add origin https://github.com/kpneha4/git-essentials-lab.git
+git remote add origin https://github.com/Christlin-Jefrina/git-essentials-lab.git
 git push -u origin main
 
 
@@ -64,6 +64,6 @@ docker build -t myweb:v1 .
 
 # run container mapping port 8080 to nginx default port 80
 docker run -d -p 8080:80 myweb:v1
-
+docker ps
 # open browser to http://localhost:8080
 
