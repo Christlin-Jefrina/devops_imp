@@ -1,6 +1,6 @@
 git --version
-git config --global user.name "kpneha4"
-git config --global user.email "kpneha4@gmail.com"
+git config --global user.name "christlinjefrina"
+git config --global user.email "christlinjefrina@karunya.edu.in"
 
 
 1. 
@@ -13,48 +13,55 @@ cd python-simple-app
 2.
 app.py
 
-# create app.py
-@'
+
+
 def add(a, b):
     return a + b
 
 if __name__ == "__main__":
     print("Hello from Python app")
     print("2 + 3 =", add(2, 3))
-'@ | Out-File -Encoding UTF8 app.py
 
-# create a test
-mkdir tests
-@'
+
+
+
+
+# create a test.py
+
 from app import add
 
 def test_add():
     assert add(2, 3) == 5
-'@ | Out-File -Encoding UTF8 tests\test_app.py
+
+
+
 
 # create requirements.txt (✅ fixed version)
-@'
+
 pytest==8.3.2
-'@ | Out-File -Encoding UTF8 requirements.txt
+
 
 # create .gitignore
-@'
+
 __pycache__/
 .venv/
 .pytest_cache/
 *.pyc
-'@ | Out-File -Encoding UTF8 .gitignore
+
 
 
 
 3. 
 
 python -m venv .venv
-.\.venv\Scripts\Activate.ps1
+.\.venv\Scripts\Activate.ps1 
+
+
 pip install --upgrade pip
 pip install -r requirements.txt
+python --version
+pip list
 
-[check - python --version, pip list]
 
 
 4.
@@ -62,32 +69,35 @@ pip install -r requirements.txt
 python -m pytest -q
 
 
+
 5. 
+
 git init
 git add .
 git commit -m "Initial commit: add app, tests, requirements"
 
 
-6.
 
+6.
+create rep in git then push
 git repository - python-simple-app
 
 copy - remote url
 
 7.
 
-git remote add origin https://github.com/kpneha4/python-simple-app.git
+git remote add origin https://github.com/Christlin-Jefrina/python-simple-app.git
 git branch -M main
 git push -u origin main
+
 
 
 
 8. 
 
 Workflows
-
-file ---  .github/workflows/python.yml
-
+create a folder and file
+ .github/workflows/python.yml
 
 name: CI
 on: [push, pull_request]
@@ -97,11 +107,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-        with: python-version: "3.11"
+        with:
+          python-version: "3.11"
       - run: python -m pip install --upgrade pip
       - run: pip install -r requirements.txt
       - run: pytest -q
-
 
 
 9.
