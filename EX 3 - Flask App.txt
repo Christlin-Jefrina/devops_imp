@@ -75,7 +75,9 @@ def home():
     return render_template_string(HTML_PAGE)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # ✅ Important change: bind to all interfaces
+    app.run(host='0.0.0.0', port=5000, debug=True)
+
 
 
 
@@ -116,11 +118,14 @@ CMD ["python", "app.py"]
 6.
 docker build -t flask-docker-app:latest .
 
-docker images | grep flask-docker-app
+docker images | findstr flask-docker-app
 
 docker run --name flaskapp -p 5000:5000 -d flask-docker-app:latest
 
 docker logs -f flaskapp
+
+docker build -t flask-docker-app:latest .
+docker run --name flaskapp -p 5000:5000 -d flask-docker-app:latest
 
 docker login
 kpneha4@gmail.com
