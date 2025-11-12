@@ -1,6 +1,6 @@
 download jenkins
 
-paste in powershell
+paste in powershell admin
 
 # Create lab folder and enter it
 New-Item -ItemType Directory -Force -Path "$HOME\jenkins-static-site" | Out-Null
@@ -32,6 +32,7 @@ docker compose up -d
 # Get initial admin password
 Write-Host "Initial Admin Password:"
 docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
+
 ========================================================================
 admin
 password
@@ -134,6 +135,7 @@ body { font-family: Arial, sans-serif; margin:0; }
     }
   }
 }
+
 
 
 
